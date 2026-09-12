@@ -1,0 +1,128 @@
+# POWER BI DASHBOARD — EXACT BUILD SPECIFICATION
+
+## Page
+Page name: `Fitness Business Dashboard`
+Canvas: 16:9
+Suggested page size: 1280 x 720
+Background: very light gray / near-white
+Header: dark navy
+Accent: teal
+Secondary accents: amber and red
+
+## Data model
+Table name: `Fitness`
+Columns:
+Duration, Date, Pulse, Maxpulse, Calories, Cal_per_Min, Intensity, Week, Month, Weekday
+
+## Data types
+Date = Date
+Duration, Pulse, Maxpulse, Week = Whole number
+Calories, Cal_per_Min = Decimal number
+Month, Weekday, Intensity = Text
+
+## DAX MEASURES
+Total Sessions =
+COUNTROWS(Fitness)
+
+Total Calories =
+SUM(Fitness[Calories])
+
+Avg Calories per Session =
+DIVIDE([Total Calories], [Total Sessions])
+
+Avg Calories per Minute =
+AVERAGE(Fitness[Cal_per_Min])
+
+Avg Duration =
+AVERAGE(Fitness[Duration])
+
+Avg Pulse =
+AVERAGE(Fitness[Pulse])
+
+Max Recorded Maxpulse =
+MAX(Fitness[Maxpulse])
+
+## OPTIONAL VALIDATION MEASURE
+Calculated Calories per Minute =
+DIVIDE(SUM(Fitness[Calories]), SUM(Fitness[Duration]))
+
+## EXACT PAGE LAYOUT
+
+[HEADER — full width, top ~70 px]
+Left: title `Fitness Business Dashboard`
+Right/subtitle: `December 2020 · Data Analyst Capstone`
+
+[FILTER ROW — below header, ~55 px]
+Slicer 1: Intensity
+  Type: Dropdown or horizontal tiles
+  Values: All / Low / Medium / High
+Slicer 2: Weekday
+  Values: All / Mon-Fri / Sat-Sun
+
+[KPI ROW — 4 equal cards]
+Card 1: Total Sessions
+  Value: [Total Sessions]
+  Subtitle: `workouts logged`
+
+Card 2: Total Calories
+  Value: [Total Calories]
+  Subtitle: `calories burned`
+
+Card 3: Avg Calories / Session
+  Value: [Avg Calories per Session]
+  Subtitle: `per workout`
+
+Card 4: Avg Cal / Min
+  Value: [Avg Calories per Minute]
+  Subtitle: `calculated field`
+
+[CHART ROW — 2 panels]
+LEFT (wider, ~60%):
+  Line chart
+  Title: `Calories Trend — Daily`
+  X-axis: Date
+  Y-axis: Total Calories
+  Values: [Total Calories]
+  Sort ascending by Date
+  Data labels: optional, preferably off for clean look
+
+RIGHT (~40%):
+  Clustered column chart
+  Title: `Avg Calories by Intensity`
+  X-axis: Intensity
+  Y-axis: [Avg Calories per Session]
+  Sort order: Low, Medium, High
+
+[TABLE — full width bottom]
+Title: `Session Detail`
+Columns:
+  Date
+  Weekday
+  Duration
+  Pulse
+  Calories
+  Cal/Min
+  Intensity
+Sort Date ascending.
+Use conditional formatting/badges for Intensity if desired.
+
+## INTERACTIONS
+- Intensity slicer filters all four KPI cards, both charts, and table.
+- Weekday slicer filters all four KPI cards, both charts, and table.
+- Reset slicers to show the full dataset.
+- Keep the dashboard readable at 100% zoom.
+
+## FORMAT
+Header: dark navy
+Page background: light gray
+Cards: white with subtle border
+Title font: Segoe UI / similar
+KPI value: bold, large
+Chart titles: concise
+Avoid 3D charts.
+Use consistent decimal formatting:
+  Calories: 0.0 or 0
+  Avg Calories/Session: 0.0
+  Avg Cal/Min: 0.00
+  Duration: 0.0 min
+  Pulse: 0.0

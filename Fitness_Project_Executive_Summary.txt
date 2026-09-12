@@ -1,0 +1,53 @@
+FITNESS BUSINESS DATA ANALYSIS — EXECUTIVE SUMMARY
+
+Dataset: Fitness workout records
+Records: 30
+Columns: 10
+Missing values: 0
+Duplicate rows: 0
+
+KEY KPIs
+Total Sessions: 30
+Total Calories: 9218.7
+Average Calories / Session: 307.29
+Average Calories / Minute: 5.55
+Average Duration: 56.00 minutes
+Average Pulse: 103.73
+Maximum Recorded Maxpulse: 175
+
+HIGHEST VALUES
+Highest Calories: 479.0 on 2020-12-02
+Highest Calories/Minute: 9.02 on 2020-12-05
+
+INTENSITY ANALYSIS
+           Sessions  Total_Calories  Avg_Calories  Avg_Cal_per_Min
+Intensity                                                         
+High              3          1185.0        395.00             7.33
+Low               7          1791.7        255.96             4.70
+Medium           20          6242.0        312.10             5.58
+
+WEEKDAY ANALYSIS
+           Sessions  Total_Calories  Avg_Calories
+Weekday                                          
+Friday            4          1251.7        312.92
+Monday            4          1423.0        355.75
+Saturday          4          1229.7        307.42
+Sunday            4          1129.3        282.32
+Thursday          5          1398.0        279.60
+Tuesday           4          1217.4        304.35
+Wednesday         5          1569.6        313.92
+
+WEEKLY ANALYSIS
+      Sessions  Total_Calories  Avg_Calories
+Week                                        
+49           6          2216.5        369.42
+50           7          2016.7        288.10
+51           7          2041.0        291.57
+52           6          1735.7        289.28
+53           4          1208.8        302.20
+
+RECOMMENDATIONS
+1. Track calories per minute alongside total calories to evaluate workout efficiency.
+2. Compare weekday and weekend activity to identify workout behavior.
+3. Monitor intensity-level performance to understand calorie outcomes.
+4. Use pulse and maximum pulse as supporting performance indicators.
